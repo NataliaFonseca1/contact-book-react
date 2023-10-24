@@ -32,9 +32,9 @@ const Home = () => {
               {contato
                 .filter((contato) => {
                   return (
-                    contato.name.includes(termo) ||
-                    contato.phone.includes(termo) ||
-                    contato.email.includes(termo)
+                    contato.name.includes(termo || '') ||
+                    contato.phone.includes(termo || '') ||
+                    contato.email.includes(termo || '')
                   )
                 })
                 .map((contato) => (

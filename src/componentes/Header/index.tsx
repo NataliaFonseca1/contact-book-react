@@ -2,7 +2,7 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faSearch } from '@fortawesome/free-solid-svg-icons'
 import * as S from './styles'
 import { useDispatch } from 'react-redux'
-import { useState } from 'react'
+import { ChangeEvent, useState } from 'react'
 import { searchTerm } from './../../store/reducers/Filter'
 
 const HeaderComponent = ({
@@ -15,11 +15,15 @@ const HeaderComponent = ({
   const dispatch = useDispatch()
   const [search, setSearch] = useState('')
 
-  const handleInputChange = (e) => {
-    const searchTermValue = e.target.value.toLowerCase()
-    setSearch(searchTermValue)
+  const handleSearch = () => {
+    const searchTermValue = search.toLowerCase()
     dispatch(searchTerm(searchTermValue))
     setSearchActive(true)
+  }
+  const handleInputChange = (e: ChangeEvent<HTMLInputElement>) => {
+    const searchTermValue = e.target.value.toLowerCase()
+    setSearch(searchTermValue)
+    handleSearch()
   }
   return (
     <>
@@ -33,7 +37,7 @@ const HeaderComponent = ({
             onChange={handleInputChange}
           />
 
-          <S.SearchIconContainer onClick={handleInputChange}>
+          <S.SearchIconContainer onClick={handleSearch}>
             <FontAwesomeIcon icon={faSearch} />
           </S.SearchIconContainer>
         </S.SearchContainer>

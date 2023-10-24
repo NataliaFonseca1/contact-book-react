@@ -16,7 +16,7 @@ const RegisterContainer = () => {
   const [email, setEmail] = useState('')
   const [emailValid, setEmailValid] = useState(true)
 
-  const validateEmail = (email) => {
+  const validateEmail = (email: string) => {
     const regex = /^[A-Z0-9._%+-]+@[A-Z0-9.-]+\.[A-Z]{2,4}$/i
     return regex.test(email)
   }
@@ -76,13 +76,20 @@ const RegisterContainer = () => {
               <S.FormInput
                 type="text"
                 placeholder="Insira seu Email"
-                id={email}
+                id="email"
                 onChange={(e) => {
                   setEmail(e.target.value)
                   setEmailValid(true)
                 }}
               />
             </label>
+          </div>
+          <div>
+            {!emailValid && (
+              <S.Message>
+                <>Email inválido. Por favor, insira um email válido.</>
+              </S.Message>
+            )}
           </div>
         </S.FormContainer>
       </S.HeaderContainer>

@@ -56,7 +56,7 @@ export const FormInput = styled.input`
   border: none;
   background-color: #9dc180;
   text-decoration: underline #9dc180;
-  color:#ffff;
+  color: #ffff;
   width: 80%;
   height: auto;
   right: auto;
@@ -75,8 +75,13 @@ export const FormInput = styled.input`
     line-height: normal;
   }
 `
+export const Message = styled.p`
+  position: absolute;
+  right: 50px;
+  margin: 10px;
+`
 export const MaskInput = styled(InputMask)`
-    border: none;
+  border: none;
   background-color: #9dc180;
   text-decoration: underline #9dc180;
   color: #ffff;
