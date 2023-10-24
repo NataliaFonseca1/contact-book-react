@@ -14,15 +14,25 @@ const RegisterContainer = () => {
   const [name, setName] = useState('')
   const [phone, setPhone] = useState('')
   const [email, setEmail] = useState('')
+  const [emailValid, setEmailValid] = useState(true)
 
+  const validateEmail = (email) => {
+    const regex = /^[A-Z0-9._%+-]+@[A-Z0-9.-]+\.[A-Z]{2,4}$/i
+    return regex.test(email)
+  }
   const handlesave = () => {
     const id = Date.now()
+    if (!validateEmail(email)) {
+      setEmailValid(false)
+      return
+    }
     const newContact = new ContactClass(name, email, phone, id)
     dispatch(adicionar(newContact))
     navigate('/')
     setName('')
     setPhone('')
     setEmail('')
+    setEmailValid(true)
   }
   return (
     <>
@@ -37,7 +47,7 @@ const RegisterContainer = () => {
         <S.FormContainer>
           <div>
             <S.User />
-            <label htmlFor={name}>
+            <label htmlFor="name">
               <S.FormInput
                 type="text"
                 placeholder="Insira seu nome"
@@ -49,9 +59,10 @@ const RegisterContainer = () => {
           </div>
           <div>
             <S.User />
-            <label htmlFor={phone}>
-              <S.FormInput
+            <label htmlFor="phone">
+              <S.MaskInput
                 type="tel"
+                mask="(99) 99999-9999"
                 placeholder="Insira seu Telefone"
                 id="phone"
                 onChange={(e) => setPhone(e.target.value)}
@@ -61,12 +72,15 @@ const RegisterContainer = () => {
           </div>
           <div>
             <S.User />
-            <label htmlFor={email}>
+            <label htmlFor="email">
               <S.FormInput
                 type="text"
                 placeholder="Insira seu Email"
                 id={email}
-                onChange={(e) => setEmail(e.target.value)}
+                onChange={(e) => {
+                  setEmail(e.target.value)
+                  setEmailValid(true)
+                }}
               />
             </label>
           </div>

@@ -2,6 +2,7 @@
 import styled from 'styled-components'
 import { SlActionUndo, SlPeople } from 'react-icons/sl'
 import { Link } from 'react-router-dom'
+import InputMask from 'react-input-mask'
 
 export const HeaderContainer = styled.header`
   display: flex;
@@ -53,16 +54,20 @@ export const FormContainer = styled.main`
 
 export const FormInput = styled.input`
   border: none;
-  background-color: none;
+  background-color: #9dc180;
   text-decoration: underline #9dc180;
+  color:#ffff;
   width: 80%;
   height: auto;
   right: auto;
-  margin: 5px 0;
-
+  margin: 5px;
+  padding: 8px;
+  padding-top: 10px;
+  padding-bottom: 10px;
+  border-radius: 35px;
   &::placeholder {
-    color: #000;
-    padding: 8px;
+    color: #ffff;
+    padding: 18px;
     font-family: Roboto Slab;
     font-size: 18px;
     font-style: normal;
@@ -70,6 +75,31 @@ export const FormInput = styled.input`
     line-height: normal;
   }
 `
+export const MaskInput = styled(InputMask)`
+    border: none;
+  background-color: #9dc180;
+  text-decoration: underline #9dc180;
+  color: #ffff;
+  font-size: 18px;
+  width: 80%;
+  height: auto;
+  right: auto;
+  margin: 5px;
+  padding: 5px;
+  padding-top: 10px;
+  padding-bottom: 10px;
+  border-radius: 35px;
+  &::placeholder {
+    color: #ffff;
+    padding: 18px;
+    font-family: Roboto Slab;
+    font-size: 18px;
+    font-style: normal;
+    font-weight: 100;
+    line-height: normal;
+  }
+`
+
 export const User = styled(SlPeople)`
   width: 30px;
   height: 30px;
