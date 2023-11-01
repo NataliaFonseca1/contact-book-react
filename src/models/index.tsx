@@ -1,4 +1,7 @@
 class ContactClass {
+  toLowerCase() {
+    throw new Error('Method not implemented.')
+  }
   name: string
   email: string
   phone: string

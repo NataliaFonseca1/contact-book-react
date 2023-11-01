@@ -16,15 +16,16 @@ const HeaderComponent = ({
   const [search, setSearch] = useState('')
 
   const handleSearch = () => {
-    const searchTermValue = search.toLowerCase()
+    const searchTermValue = search
     dispatch(searchTerm(searchTermValue))
     setSearchActive(true)
   }
   const handleInputChange = (e: ChangeEvent<HTMLInputElement>) => {
-    const searchTermValue = e.target.value.toLowerCase()
+    const searchTermValue = e.target.value
     setSearch(searchTermValue)
     handleSearch()
   }
+
   return (
     <>
       <div>
@@ -37,7 +38,7 @@ const HeaderComponent = ({
             onChange={handleInputChange}
           />
 
-          <S.SearchIconContainer onClick={handleSearch}>
+          <S.SearchIconContainer>
             <FontAwesomeIcon icon={faSearch} />
           </S.SearchIconContainer>
         </S.SearchContainer>
