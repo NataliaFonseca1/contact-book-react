@@ -23,7 +23,7 @@ export const Container = styled.div`
 
   @media (max-width: 768px) {
     width: 100%;
-    height: 90vh;
+    height: 130vh;
     margin-left: 0;
     margin-top: 0;
     background-color: #ffff;
@@ -37,7 +37,7 @@ export const Container = styled.div`
   }
   @media (min-width: 820px) and (max-width: 1180px) {
     width: 50%;
-    height: 60vh;
+    height: 105vh;
     margin-left: 25%;
     margin-top: 0;
     background-color: #ffff;
