@@ -1,3 +1,6 @@
+<img width="560" height="315" src="https://github.com/NataliaFonseca1/contact-book-react/blob/main/public/demo-contact-book.gif" frameborder="0" allowfullscreen></img>
+
+
 # React + TypeScript + Vite
 
 This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
